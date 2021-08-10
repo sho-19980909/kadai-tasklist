@@ -47,7 +47,7 @@ class TasksController extends Controller
     public function show($id)
     {
         //idの値でタスクを検索して取得
-        $task = Task::findOrFile($id);
+        $task = Task::findOrFail($id);
         
         //タスク詳細ビューでそれを表示
         return view('tasks.show', [
@@ -59,7 +59,7 @@ class TasksController extends Controller
     public function edit($id)
     {
         //idの値でタスクを検索して取得
-        $task =Task::findOrFile($id);
+        $task =Task::findOrFail($id);
         
         //タスク編集ビューでそれを表示
         return view('tasks.edit', [
@@ -71,7 +71,7 @@ class TasksController extends Controller
     public function update(Request $request, $id)
     {
         //idの値でタスクを検索して取得
-        $task = Task::findOrFile($id);
+        $task = Task::findOrFail($id);
         //タスクを更新
         $task->content = $request->content;
         $task->save();
@@ -84,7 +84,7 @@ class TasksController extends Controller
     public function destroy($id)
     {
         //idの値でタスクを検索して取得
-        $task = Task::findOrFile($id);
+        $task = Task::findOrFail($id);
         //タスクを削除
         $task->delete();
         
