@@ -19,3 +19,6 @@ Route::get('/', function () {
 Route::get('/', 'TasksController@index');
 
 Route::resource('tasks', 'TasksController');
+
+// //ユーザ登録を追加
+// Route::get()
