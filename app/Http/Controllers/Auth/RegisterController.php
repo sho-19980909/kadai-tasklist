@@ -9,8 +9,9 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
+// RegisterController は、ユーザ登録のためのコントローラ。
 class RegisterController extends Controller
-{
+{s
     /*
     |--------------------------------------------------------------------------
     | Register Controller
@@ -47,6 +48,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
+    // validator()は、ユーザ登録の際のフォームデータのバリデーションを行っている。
     protected function validator(array $data)
     {
         return Validator::make($data, [
@@ -62,6 +64,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
+    // create()は、Userを新規作成しているメソッド。（これはRESTfulなアクション7つの内の1つであるcreateアクションではない。）
     protected function create(array $data)
     {
         return User::create([
