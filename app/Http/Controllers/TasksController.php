@@ -36,7 +36,9 @@ class TasksController extends Controller
     // getでtasks/createにアクセスされた場合の「新規登録画面表示処理」
     public function create()
     {
-        if(\Auth::id() == $task->user_id){
+        //  $task = Task::findOrFail($id);
+        
+        if(\Auth::check()) {
             
             $task = new Task;
             
