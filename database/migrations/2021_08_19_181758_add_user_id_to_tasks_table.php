@@ -18,7 +18,7 @@ class AddUserIdToTasksTable extends Migration
             $table->unsignedBigInteger('user_id');
             
             //外部キー制約(データベース側の整合性を担保するために利用。)
-            // database/migrationsにある'tasks'テーブルの'usr_id'カラムに存在しない'usrs'テーブルの'id'カラムが存在しないようにする機能。
+            // database/migrationsにある'tasks'テーブルの'user_id'カラムに存在しない'users'テーブルの'id'カラムが存在しないようにする機能。
             $table->foreign('user_id')->references('id')->on('users');
         });
     }

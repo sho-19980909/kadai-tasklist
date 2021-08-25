@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Validator;
 
 // RegisterController は、ユーザ登録のためのコントローラ。
 class RegisterController extends Controller
-{s
+{
     /*
     |--------------------------------------------------------------------------
     | Register Controller
