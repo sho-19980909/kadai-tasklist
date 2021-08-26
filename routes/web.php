@@ -17,7 +17,7 @@ Route::get('/', 'TasksController@index');
 
 // なぜいるかいらないか（理由をはっきりさせる）
 // php artisan route:list　ルートの一覧がわかる
-Route::resource('tasks', 'TasksController', ['only' => ['index', 'show', 'create', 'edit', 'destroy', 'store']]);
+Route::resource('tasks', 'TasksController', ['only' => ['index', 'show', 'create', 'edit', 'destroy', 'store', 'update']]);
 
 // ユーザ登録を追加
 Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup.get');
@@ -34,5 +34,5 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 Route::group(['middleware' => ['auth']], function() {
     
     // ['only' => ['create', 'edit', 'destroy', 'store'] : 認証済みのユーザだけがこれらのアクションにアクセスできる。
-    Route::resource('tasks', 'TasksController', ['only' => ['create', 'edit', 'destroy', 'store']] );
+    Route::resource('tasks', 'TasksController', ['only' => ['create', 'edit', 'destroy', 'store', 'update']] );
 });

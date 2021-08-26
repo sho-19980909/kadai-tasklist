@@ -121,7 +121,7 @@ class TasksController extends Controller
     // putまたはpatchでtasks/（任意のid）にアクセスされた場合の「更新処理」
     public function update(Request $request, $id)
     {
-        $task = \App\Tasks::findOrFail($id);
+        $task = \App\Task::findOrFail($id);
         
         if(\Auth::id() == $task->user_id) {
             
@@ -137,6 +137,8 @@ class TasksController extends Controller
             $task->status = $request->status;
             $task->content = $request->content;
             $task->save();
+            
+            return redirect('/');
         
         }else{
             
