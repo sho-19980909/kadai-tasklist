@@ -19,7 +19,8 @@ class TasksController extends Controller
             $user = \Auth::user();
        
             // このユーザのみtaskを取得する。
-            $tasks = $user->tasks()->orderBy('created_at', 'desc')->paginate(1);
+            // paginate : ページ分け。
+            $tasks = $user->tasks()->orderBy('created_at', 'desc')->paginate(10);
             
             //task一覧ビューでそれを表示
             return view('tasks.index', [
@@ -27,8 +28,10 @@ class TasksController extends Controller
             ]);
             
         }else{    
-            
-            return redirect('/');
+            // resources/views/welcome.blade.php　→　welcome
+            // resources/views/tasks/index.blade.php　→　tasks.index
+
+            return view('welcome');
         }
 
     }

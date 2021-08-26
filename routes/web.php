@@ -11,13 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'TasksController@index');
 // Controller(TasksController@indexを経由して、'welcome'を表示する。)
 // Route::get('/', 'TasksController@index');
-Route::resource('tasks', 'TasksController');
 
+// なぜいるかいらないか（理由をはっきりさせる）
+// php artisan route:list　ルートの一覧がわかる
+Route::resource('tasks', 'TasksController', ['only' => ['index', 'show', 'create', 'edit', 'destroy', 'store']]);
 
 // ユーザ登録を追加
 Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup.get');
